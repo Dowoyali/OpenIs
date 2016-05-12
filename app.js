@@ -6,7 +6,7 @@ var foodquery = [
  'FILTER regex(?name, "Ch.","i").'
 ].join(" ");
 
-var url = "http://localhost:3030/ds/query?query="
+var url = "http://localhost:3030/ds/query"
 
 function encodeQuery(query){
  return url+"?query="+ encodeURIComponent(query)
