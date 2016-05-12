@@ -9,7 +9,9 @@ var foodquery = [
 var url = "http://localhost:3030/ds/query"
 
 function encodeQuery(query){
- return url+"?query="+ encodeURIComponent(foodquery)
+ var query = url+"?query="+ encodeURIComponent(foodquery);
+ console.log(query);
+ return query
 }
 
 
@@ -20,6 +22,10 @@ function doQuery(query){
 	xhttp.onreadystatechange= function() {
 		if(xhttp.readyState == 4 && xhttp.status == 200){
 			document.getElementById("test").innerHTML= xhttp.responseText;
+		}
+
+		else{
+			console.log(xhttp.responseText)
 		}
 	}
 
