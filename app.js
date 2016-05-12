@@ -26,6 +26,8 @@ function doQuery(query){
 	xhttp.open("GET",query,true);
 	xhttp.send();
 
+}
+
 
 
 
