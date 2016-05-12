@@ -1,0 +1,293 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#>.
+@prefix ex: <http://ourthing.com/ns#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix person: <http://dbpedia.org/ontology/Person/>.
+
+<#UserAccount>
+    rdf:type rr:TriplesMap ;
+    rr:logicalTable [ rr:tableName "User" ];
+    rr:subjectMap [
+        rr:template "http://data.example.com/UserAccount/{User id}";
+        rr:class ex:User;
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:OwnedByPerson;
+	rr:objectMap [
+        	rr:parentTriplesMap <#Person>;
+		rr:joinCondition [
+			rr:parent "`User id`";
+			rr:child "`User id`";
+		];
+	];
+   ].
+
+<#UserAccountWorkout>
+    rdf:type rr:TriplesMap ;
+    rr:logicalTable [ rr:tableName "UserWorkout" ];
+    rr:subjectMap [
+        rr:template "http://data.example.com/UserAccount/{User id}";
+        rr:class ex:User;
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:UserOf;
+	rr:objectMap [
+            rr:template "http://data.example.com/Workout/{Workout id}";
+        ];
+   ].
+
+
+<#Person>
+   a rr:TriplesMap ;
+   rr:logicalTable [ rr:tableName "User" ];
+   rr:subjectMap [
+        rr:template "http://data.example.com/Person/{User id}";
+        rr:class ex:Person;
+   ];
+
+   rr:predicateObjectMap [
+ 	rr:predicate foaf:givenName;
+	rr:objectMap [
+		rr:column "FirstName";
+		rr:datatype xsd:string;
+	];
+   ];
+
+   rr:predicateObjectMap [
+ 	rr:predicate foaf:surname;
+	rr:objectMap [
+		rr:column "LastName";
+		rr:datatype xsd:string;
+	];
+   ];
+
+   rr:predicateObjectMap [
+ 	rr:predicate person:weight;
+	rr:objectMap [
+		rr:column "BodyWeight";
+		rr:datatype xsd:double;
+	];
+   ];
+
+  rr:predicateObjectMap [
+ 	rr:predicate <http://dbpedia.org/ontology/height>;
+	rr:objectMap [
+		rr:column "Length";
+		rr:datatype xsd:double;
+	];
+   ].
+
+
+<#WorkoutExercise>
+	rr:logicalTable [rr:tableName "WorkoutExercise"];
+	rr:subjectMap [
+		rr:template "http://data.example.com/Workout/{Workout id}";
+		rr:class ex:Workout;
+	];
+	rr:predicateObjectMap [
+		rr:predicate ex:HasExercise;
+		rr:objectMap [
+			rr:template "http://data.example.com/Exercise/{Exercise id}";
+			rr:termType rr:IRI;
+		];
+	].
+
+
+<#WorkoutExercise2>
+	rr:logicalTable [rr:tableName "WorkoutExercise"];
+	rr:subjectMap [
+		rr:template "http://data.example.com/Exercise/{Exercise id}";
+		rr:class ex:Exericse;
+	];
+	rr:predicateObjectMap [
+		rr:predicate ex:HasWorkout;
+		rr:objectMap [
+			rr:template "http://data.example.com/Workout/{Workout id}";
+			rr:termType rr:IRI;
+		];
+	].
+
+<#UserWorkout>
+	rr:logicalTable [rr:tableName "UserWorkout"];
+	rr:subjectMap [
+		rr:template "http://data.example.com/Workout/{Workout id}";
+		rr:class ex:Workout;
+	];
+	rr:predicateObjectMap [
+		rr:predicate ex:HasDate;
+		rr:objectMap [
+			rr:column "Date";
+			rr:datatype xsd:dateTime;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate ex:HasUser;
+		rr:objectMap [
+			rr:template "http://data.example.com/User/{User id}";
+		];
+	].
+
+
+<#exercise_device_TM>
+  a rr:TriplesMap;
+
+  rr:logicalTable [ rr:tableName "`Exercise Device`" ];
+
+  rr:subjectMap [
+    rr:template "{Exercise id}";
+    rr:class ex:Exercise;
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:Equipment;
+    rr:objectMap[
+      rr:column "Device";
+      rr:datatype xsd:string;
+    ];
+  ].
+
+<#power_exercise_TM>
+  a rr:TriplesMap;
+
+  rr:logicalTable [ rr:tableName "PowerExercise"];
+
+  rr:subjectMap [
+    rr:template "{Exercise id}";
+    rr:class ex:Exercise;
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:Repeats;
+    rr:objectMap[
+      rr:column "Reps";
+      rr:datatype xsd:int;
+    ];
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:HasType;
+    rr:objectMap[
+      rr:constant "Power";
+      rr:datatype xsd:string;
+    ];
+  ].
+
+<#cardio_exercise_TM>
+    a rr:TriplesMap;
+
+    rr:logicalTable [ rr:tableName "CardioExercise"];
+
+    rr:subjectMap [
+      rr:template "{Exercise id}";
+      rr:class ex:Exercise;
+    ];
+
+    rr:predicateObjectMap [
+      rr:predicate ex:Repeats;
+      rr:objectMap[
+        rr:constant 0;
+        rr:datatype xsd:int;
+      ];
+    ];
+
+    rr:predicateObjectMap [
+      rr:predicate ex:HasType;
+      rr:objectMap[
+        rr:constant "Cardio";
+        rr:datatype xsd:string;
+      ];
+    ].
+
+<#exercise_TM>
+  a rr:TriplesMap;
+
+  rr:logicalTable [ rr:tableName "Exercise" ];
+
+  rr:subjectMap [
+    rr:template "http://data.example.com/Exercise/{Exercise id}";
+    rr:class ex:Exercise;
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:Difficulty;
+    rr:objectMap[
+      rr:column "Difficulty";
+      rr:datatype xsd:int;
+    ];
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:Duration;
+    rr:objectMap[
+      rr:column "Duration";
+      rr:datatype xsd:int;
+    ];
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:HasName;
+    rr:objectMap[
+      rr:column "Description";
+      rr:datatype xsd:string;
+    ];
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:NumberOfCalories;
+    rr:objectMap[
+      rr:column "Burns Calories";
+      rr:datatype xsd:int;
+    ];
+  ].
+
+<#HeartRate_TM>
+  rr:logicalTable [rr:sqlQuery """SELECT `Exercise id`, AvergeBPM FROM Workout INNER JOIN WorkoutExercise ON Workout.`Workout id`=WorkoutExercise.`Workout id`"""];
+
+  rr:subjectMap [
+    rr:template "{Exercise id}";
+    rr:class ex:Exercise;
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:HeartRate;
+    rr:objectMap[
+      rr:column "AvergeBPM";
+      rr:datatype xsd:int;
+    ];
+  ].
+
+<#MuscleGroup_TM>
+  rr:logicalTable[rr:tableName "ExTargetsMuscle"];
+
+  rr:subjectMap [
+    rr:template "{Exercise id}";
+    rr:class ex:Exercise;
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ex:HasMuscleGroup;
+    rr:objectMap[
+      rr:column "Name";
+      rr:datatype xsd:string;
+    ];
+  ].
+
+  <#Rating_TM>
+    rr:logicalTable [rr:sqlQuery """SELECT `Exercise id`, AVG(Rating) FROM UserWorkout INNER JOIN WorkoutExercise ON UserWorkout.`Workout id`=WorkoutExercise.`Workout id` GROUP BY `Exercise id`"""];
+
+    rr:subjectMap [
+      rr:template "{Exercise id}";
+      rr:class ex:Exercise;
+    ];
+
+    rr:predicateObjectMap [
+      rr:predicate ex:Rating;
+      rr:objectMap[
+        rr:column "AVG(Rating)";
+        rr:datatype xsd:int;
+      ];
+    ].
