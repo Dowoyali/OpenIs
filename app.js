@@ -32,18 +32,25 @@ function search(){
 	doQuery(createFoodQuery('"'+(document.getElementById("input").value)+'"'))	
 }
 
+
+var cheatMeal = [];
+
 function tree(data) {    
 
 	var html = "";
     if (typeof(data) == 'object') {
         html = html + '<ul>';
         for (var i in data) {
-           html = html + '<li>' + i;
-            tree(data[i]);            
+           html = html + '<li>' + data[i].name.value;
+           html = html + '<button type="button" onclick="addToMeal(' + data[i].name.value +')"> Add to cheat-meal </button>';          
         }
         html = html +'</ul>';
     } else {
         html = html + ' => ' + data;
     }
     return html
+}
+
+function addToMeal(foodName){
+	console.log(foodName);
 }
