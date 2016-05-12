@@ -9,7 +9,7 @@ var foodquery = [
 var url = "http://localhost:3030/ds/query"
 
 function encodeQuery(query){
- return url+"?query="+ encodeURIComponent(query)
+ return url+"?query="+ encodeURIComponent(foodquery)
 }
 
 
@@ -23,7 +23,7 @@ function doQuery(query){
 		}
 	}
 
-	xhttp.open("GET",query,true);
+	xhttp.open("GET",encodeQuery(query),true);
 	xhttp.send();
 
 }
