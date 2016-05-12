@@ -1,19 +1,14 @@
-var foodquery = [
+var url = "http://localhost:3031/ds2/query"
+
+var foodqueryBase = [
  "SELECT ?subject1 ?name",
  "WHERE {",
  "?subject1 a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/Ingredient>.",
  "?subject1 <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredientName> ?name.",
- 'FILTER regex(?name, "Ch.","i").'
-].join(" ");
+ "FILTER regex(?name, "].join(" ");
+var foodqueryEnd = ', "i").}';
 
-var url = "http://localhost:3030/ds/query"
-
-function encodeQuery(query){
- var query = url+"?query="+ encodeURIComponent(foodquery);
- console.log(query);
- return query
-}
-
+function createFoodQuery(regex) {return url+"?query=" + foodqueryBase + regex + foodqueryEnd};
 
 function doQuery(query){
 
@@ -29,7 +24,7 @@ function doQuery(query){
 		}
 	}
 
-	xhttp.open("GET",encodeQuery(query),true);
+	xhttp.open("GET",createFoodQuery('"'+(document.getElementById("input").value)+'"',true));
 	xhttp.send();
 
 }
