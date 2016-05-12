@@ -1,4 +1,4 @@
-var url = "http://localhost:3031/ds2/query"
+var url = "http://localhost:3030/ds/query"
 
 var foodqueryBase = [
  "SELECT ?subject1 ?name",
@@ -15,7 +15,9 @@ function doQuery(query){
 	
 	xhttp.onreadystatechange= function() {
 		if(xhttp.readyState == 4 && xhttp.status == 200){
-			document.getElementById("test").innerHTML= xhttp.responseText;
+
+			var response = JSON.parse(xhttp.responseText);
+			document.getElementById("test").innerHTML= tree(response.results.bindings);
 		}
 
 		else{
@@ -30,3 +32,18 @@ function search(){
 	doQuery(createFoodQuery('"'+(document.getElementById("input").value)+'"'))	
 }
 
+function tree(data) {    
+
+	var html = "";
+    if (typeof(data) == 'object') {
+        html = html + '<ul>';
+        for (var i in data) {
+           html = html + '<li>' + i;
+            tree(data[i]);            
+        }
+        html = html +'</ul>';
+    } else {
+        html = html + ' => ' + data;
+    }
+    return html
+}
