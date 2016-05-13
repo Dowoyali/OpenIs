@@ -44,22 +44,18 @@ function addToMeal(foodName){
 
 function showIngredientsRow(){document.getElementById("ingredientsRow").style.display = "inline";};
 function createIngredients(ingredients){
-	console.log(ingredients);
-	console.log(ingredients.length);
 	for(var i = 0; i < ingredients.length; i++){
-		var name = ingredients[i].name.value;
-		createButtonPossibilities(name, function(){
-			addToMeal(name);
-			createButtonIngredient(name)})
+		var temp = ingredients[i].name.value;
+		createButtonPossibilities(temp, temp)
 	};
 };
 
-function createButtonPossibilities(text, callback){
+function createButtonPossibilities(text, name){
 	var resultsDiv = document.getElementById("resultsDiv");
 	var butt = document.createElement("button");
 	butt.appendChild(document.createTextNode(text));
 	butt.className = "btn btn-success btn-lg";
-	butt.onclick = callback;
+	butt.onclick = function(){addToMeal(name);createButtonIngredient(name);};
 	resultsDiv.appendChild(butt);
 };
 
