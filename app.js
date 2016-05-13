@@ -1,5 +1,9 @@
-var url = "http://localhost:3031/ds2/query"
+//Url for the sport Fuseki
+var urlSport = "http://localhost:3030/ds/query"
+//Url for the food Fuseki
+var urlFood = "http://localhost:3031/ds2/query"
 
+function getIngredient(){return '"'+(document.getElementById("ingredientInput").value)+'"'};
 var foodqueryBase = [
  "SELECT ?subject1 ?name",
  "WHERE {",
@@ -7,19 +11,18 @@ var foodqueryBase = [
  "?subject1 <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredientName> ?name.",
  "FILTER regex(?name, "].join(" ");
 var foodqueryEnd = ', "i").}';
+function createFoodQuery(regex) {return urlFood + "?query=" + foodqueryBase + regex + foodqueryEnd};
 
-function createFoodQuery(regex) {return url+"?query=" + foodqueryBase + regex + foodqueryEnd};
-
-function doQuery(query){
+function doQuery(query, callback){
 	xhttp = new XMLHttpRequest();
 	
 	xhttp.onreadystatechange= function() {
 		if(xhttp.readyState == 4 && xhttp.status == 200){
-
 			var response = JSON.parse(xhttp.responseText);
-			document.getElementById("resultsDiv").innerHTML= tree(response.results.bindings);
+			console.log(response);
+			callback(response)
+			return response;
 		}
-
 		else{
 		}
 	}
@@ -28,10 +31,11 @@ function doQuery(query){
 	xhttp.send();
 }
 
-function search(){
-	doQuery(createFoodQuery('"'+(document.getElementById("ingredientInput").value)+'"'))	
-}
+function search(){doQuery(createFoodQuery(getIngredient()), makeResults);};
 
+function makeResults(response){
+	document.getElementById("resultsDiv").innerHTML= tree(response.results.bindings);
+};
 
 var cheatMeal = [];
 
@@ -54,6 +58,7 @@ function addToMeal(foodName){
 
 }
 
+//testing ------
 var brolQuery = [
 "@prefix food: <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/>.",
 "@prefix ex: <http://example.org/exercise>",
@@ -70,7 +75,7 @@ var brolQuery = [
 "  }",
 "}"
 ]
-var brool = url+"?query="+brolQuery; 
+var brool = urlFood+"?query="+brolQuery; 
 function brol(query){
 	xhttp = new XMLHttpRequest();
 	
