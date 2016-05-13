@@ -32,21 +32,28 @@ function doQuery(query, callback){
 function search(){doQuery(createFoodQuery(getIngredient()), makeResults);};
 
 function makeResults(response){
+	while (resultsDiv.firstChild) {resultsDiv.removeChild(resultsDiv.firstChild);};
 	createIngredients(response.results.bindings);
 	showIngredientsRow();
 };
 
 var cheatMeal = [];
-function addToMeal(foodName){cheatMeal.push(foodName);};
+function addToMeal(foodName){
+	console.log(foodName);
+	cheatMeal.push(foodName);};
 
 function showIngredientsRow(){document.getElementById("ingredientsRow").style.display = "inline";};
 function createIngredients(ingredients){
-	//console.log(ingredients);
-	for(var i in ingredients)
-		createButton(ingredients[i].name.value, search);
+	for(i = 0; i < ingredients.length; i++)
+		console.log(i);
+		var name = ingredients[i].name.value;
+		console.log(name);
+		createButtonPossibilities(name, function(){
+			addToMeal(name);
+			createButtonIngredient(name)});
 };
 
-function createButton(text, callback){
+function createButtonPossibilities(text, callback){
 	var resultsDiv = document.getElementById("resultsDiv");
 	var butt = document.createElement("button");
 	butt.appendChild(document.createTextNode(text));
@@ -55,18 +62,14 @@ function createButton(text, callback){
 	resultsDiv.appendChild(butt);
 };
 
-function tree(data) {    
-	var html = "";
-        html = html + '<ul>';
-        for (var i in data) {
-           var foodname = data[i].name.value;
-           html = html + '<li>' + foodname;
-           html = html + '<button type="button" onclick="addToMeal('+ "'" + data[i].name.value +"'" +')"> Add to cheat-meal </button>';          
-        }
-        html = html +'</ul>';
-    return html
-    	
-}
+function createButtonIngredient(name){
+	var ingredientsDiv = document.getElementById("ingredientsDiv");
+	var butt = document.createElement("button");
+	butt.appendChild(document.createTextNode(name));
+	butt.className = "btn btn-info btn-lg";
+	butt.onclick = function(){butt.parentNode.removeChild(butt)};
+	ingredientsDiv.appendChild(butt);
+};
 
 //testing ------
 var brolQuery = [
