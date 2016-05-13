@@ -1,13 +1,45 @@
 <!DOCTYPE html>
-<html>
-	<body>
+<html lang="en">
+<head>
+  <title>Cheat-meal burner</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="app.js"></script>
+</head>
+<body>
 
-		<textarea id="input">Query</textarea>
-		<button type="button" onclick="search()">Search</button>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-2"></div>
+	    	<div class="col-xs-8" align="center">
+			<h1>Cheat-meal burner</h1>
+			<div class="form-group">
+  				<label for="ingredientInput">Choose an ingredient:</label>
+				<input type="text" class="form-control" id="ingredientInput"> 
+			</div>
+  			<button type="button" class="btn btn-primary" onclick="search()">Search</button>
+			<div class="container-fluid" id="resultsDiv"></div>
+		</div>
+	      	<div class="col-xs-2"></div>
+	</div>
 
-		<div id="test"></div>
+	<div class="row" id="ingredientsRow" style="display: none;">
+		<div class="col-xs-2"></div>
+	    	<div class="col-xs-8" align="center">
+			<h3>Chosen cheat-meal</h3>
+			<div class="form-group">
+  				<label for="usr">Ingredients:</label>
+				<div id="results"></div>
+			</div>
+			<div class="container-fluid" id="ingredientsDiv"></div>
+		</div>
+	      	<div class="col-xs-2"></div>
+	</div>
 
-	</body>
+</div>
 
-<script src="app.js"></script>
+</body>
 </html>

@@ -1,4 +1,4 @@
-var url = "http://localhost:3030/ds/query"
+var url = "http://localhost:3031/ds2/query"
 
 var foodqueryBase = [
  "SELECT ?subject1 ?name",
@@ -17,7 +17,7 @@ function doQuery(query){
 		if(xhttp.readyState == 4 && xhttp.status == 200){
 
 			var response = JSON.parse(xhttp.responseText);
-			document.getElementById("test").innerHTML= tree(response.results.bindings);
+			document.getElementById("resultsDiv").innerHTML= tree(response.results.bindings);
 		}
 
 		else{
@@ -29,7 +29,7 @@ function doQuery(query){
 }
 
 function search(){
-	doQuery(createFoodQuery('"'+(document.getElementById("input").value)+'"'))	
+	doQuery(createFoodQuery('"'+(document.getElementById("ingredientInput").value)+'"'))	
 }
 
 
@@ -54,3 +54,38 @@ function addToMeal(foodName){
 
 }
 
+var brolQuery = [
+"@prefix food: <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/>.",
+"@prefix ex: <http://example.org/exercise>",
+"SELECT ?exercise_name ?food_name ?cal_food ?cal_ex",
+"WHERE{",
+"    ?exercise a ex:Exercise.",
+"    ?exercise ex:HasName ?exercise_name.",
+"    ?exercise ex:NumberOfCalories ?cal_ex.",
+"    FILTER (?cal_ex >= ?cal_food).",
+"    SERVICE <http://localhost:3031/ds2/query> {",
+"      ?food_el a food:Ingredient.",
+"      ?food_el food:hasIngredientName ?food_name.",
+"      ?food_el food:hasNutritiveValueQuantity ?cal_food.",
+"  }",
+"}"
+]
+var brool = url+"?query="+brolQuery; 
+function brol(query){
+	xhttp = new XMLHttpRequest();
+	
+	xhttp.onreadystatechange= function() {
+		if(xhttp.readyState == 4 && xhttp.status == 200){
+
+			var response = JSON.parse(xhttp.responseText);
+			console.log(response);
+		}
+
+		else{
+		}
+	}
+	
+	xhttp.open("GET",query,true);
+	xhttp.send();
+
+}
