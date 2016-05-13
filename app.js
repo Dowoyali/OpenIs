@@ -19,9 +19,7 @@ function doQuery(query, callback){
 	xhttp.onreadystatechange= function() {
 		if(xhttp.readyState == 4 && xhttp.status == 200){
 			var response = JSON.parse(xhttp.responseText);
-			console.log(response);
 			callback(response)
-			return response;
 		}
 		else{
 		}
@@ -34,13 +32,30 @@ function doQuery(query, callback){
 function search(){doQuery(createFoodQuery(getIngredient()), makeResults);};
 
 function makeResults(response){
-	document.getElementById("resultsDiv").innerHTML= tree(response.results.bindings);
+	createIngredients(response.results.bindings);
+	showIngredientsRow();
 };
 
 var cheatMeal = [];
+function addToMeal(foodName){cheatMeal.push(foodName);};
+
+function showIngredientsRow(){document.getElementById("ingredientsRow").style.display = "inline";};
+function createIngredients(ingredients){
+	//console.log(ingredients);
+	for(var i in ingredients)
+		createButton(ingredients[i].name.value, search);
+};
+
+function createButton(text, callback){
+	var resultsDiv = document.getElementById("resultsDiv");
+	var butt = document.createElement("button");
+	butt.appendChild(document.createTextNode(text));
+	butt.className = "btn btn-success btn-lg";
+	butt.onclick = callback;
+	resultsDiv.appendChild(butt);
+};
 
 function tree(data) {    
-
 	var html = "";
         html = html + '<ul>';
         for (var i in data) {
@@ -50,12 +65,7 @@ function tree(data) {
         }
         html = html +'</ul>';
     return html
-}
-
-function addToMeal(foodName){
-	cheatMeal.push(foodName);
-	console.log(cheatMeal);
-
+    	
 }
 
 //testing ------
