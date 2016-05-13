@@ -44,13 +44,14 @@ function addToMeal(foodName){
 
 function showIngredientsRow(){document.getElementById("ingredientsRow").style.display = "inline";};
 function createIngredients(ingredients){
-	for(i = 0; i < ingredients.length; i++)
-		console.log(i);
+	console.log(ingredients);
+	console.log(ingredients.length);
+	for(var i = 0; i < ingredients.length; i++){
 		var name = ingredients[i].name.value;
-		console.log(name);
 		createButtonPossibilities(name, function(){
 			addToMeal(name);
-			createButtonIngredient(name)});
+			createButtonIngredient(name)})
+	};
 };
 
 function createButtonPossibilities(text, callback){
