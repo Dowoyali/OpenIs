@@ -7,7 +7,9 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="auto-complete.js"></script>
   <script src="app.js"></script>
+  <link rel="stylesheet" href="auto-complete.css">
 </head>
 <body>
 
@@ -18,7 +20,7 @@
 			<h1>Cheat-meal burner</h1>
 			<div class="form-group">
   				<label for="ingredientInput">Choose an ingredient:</label>
-				<input type="text" class="form-control" id="ingredientInput"> 
+				<input id="ingredientInput" type="text" class="form-control" autocomplete="off" >
 			</div>
   			<button type="button" class="btn btn-primary" onclick="search()">Search</button>
 			</br></br>
@@ -41,6 +43,5 @@
 	</div>
 
 </div>
-
 </body>
 </html>

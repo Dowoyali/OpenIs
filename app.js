@@ -1,9 +1,11 @@
 //Url for the sport Fuseki
 var urlSport = "http://localhost:3030/ds/query"
 //Url for the food Fuseki
-var urlFood = "http://localhost:3031/ds2/query"
+var urlFood = "http://localhost:3031/ds/query"
 
-function getIngredient(){return '"'+(document.getElementById("ingredientInput").value)+'"'};
+
+
+function stringify(value){return '"'+ value +'"'};
 var foodqueryBase = [
  "SELECT ?subject1 ?name",
  "WHERE {",
@@ -29,7 +31,7 @@ function doQuery(query, callback){
 	xhttp.send();
 }
 
-function search(){doQuery(createFoodQuery(getIngredient()), makeResults);};
+function search(){doQuery(createFoodQuery(stringify((document.getElementById("ingredientInput").value))), makeResults);};
 
 function makeResults(response){
 	while (resultsDiv.firstChild) {resultsDiv.removeChild(resultsDiv.firstChild);};
@@ -67,6 +69,22 @@ function createButtonIngredient(name){
 	butt.onclick = function(){butt.parentNode.removeChild(butt)};
 	ingredientsDiv.appendChild(butt);
 };
+
+window.onload = createAutoComplete;
+function createAutoComplete(){
+ new autoComplete({
+    selector: document.getElementById('ingredientInput'),
+    minChars: 1,
+    source: function(term, response){
+	console.log(term);
+	doQuery(createFoodQuery(stringify(term)),function(data){
+			 console.log(data.results.bindings);
+			 var strings = (data.results.bindings).map(function(x){return x.name.value});
+			 console.log(strings);
+			 response(strings); });
+    }
+});
+}
 
 //testing ------
 var brolQuery = [
