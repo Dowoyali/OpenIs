@@ -1,0 +1,276 @@
+
+<http://data.example.com/Exercise/4> a <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Exercise> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#Repeats> "0"^^<http://www.w3.org/2001/XMLSchema#int> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasType> "Cardio"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://data.example.com/Exercise/9> a <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Exercise> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#Repeats> "0"^^<http://www.w3.org/2001/XMLSchema#int> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasType> "Cardio"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://data.example.com/Exercise/1> a <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Exercise> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#Equipment> "Kettle Bel"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://data.example.com/Exercise/10> a <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Exercise> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#Equipment> "Weights"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://data.example.com/Exercise/2> a <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Exercise> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#Equipment> "Rowing Mac"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://data.example.com/Exercise/4> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Equipment> "Bike"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://data.example.com/Exercise/5> a <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Exercise> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#Equipment> "Rope"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://data.example.com/Exercise/9> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Equipment> "Treadmill"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://data.example.com/UserAccount/1> a <http://webprotege.stanford.edu/ontologies/ExerciseOntology#UserAccount> .
+
+<http://data.example.com/UserAccount/2> a <http://webprotege.stanford.edu/ontologies/ExerciseOntology#UserAccount> .
+
+<http://data.example.com/UserAccount/3> a <http://webprotege.stanford.edu/ontologies/ExerciseOntology#UserAccount> .
+
+<http://data.example.com/UserAccount/4> a <http://webprotege.stanford.edu/ontologies/ExerciseOntology#UserAccount> .
+
+<http://data.example.com/UserAccount/5> a <http://webprotege.stanford.edu/ontologies/ExerciseOntology#UserAccount> .
+
+<http://data.example.com/UserAccount/1> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#OwnedByPerson> <http://data.example.com/Person/1> .
+
+<http://data.example.com/UserAccount/2> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#OwnedByPerson> <http://data.example.com/Person/2> .
+
+<http://data.example.com/UserAccount/3> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#OwnedByPerson> <http://data.example.com/Person/3> .
+
+<http://data.example.com/UserAccount/4> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#OwnedByPerson> <http://data.example.com/Person/4> .
+
+<http://data.example.com/UserAccount/5> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#OwnedByPerson> <http://data.example.com/Person/5> .
+
+<http://data.example.com/Exercise/6> a <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Exercise> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#HeartRate> "110"^^<http://www.w3.org/2001/XMLSchema#int> .
+
+<http://data.example.com/Exercise/7> a <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Exercise> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#HeartRate> "110"^^<http://www.w3.org/2001/XMLSchema#int> .
+
+<http://data.example.com/Exercise/8> a <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Exercise> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#HeartRate> "110"^^<http://www.w3.org/2001/XMLSchema#int> .
+
+<http://data.example.com/Exercise/1> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HeartRate> "100"^^<http://www.w3.org/2001/XMLSchema#int> .
+
+<http://data.example.com/Exercise/10> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HeartRate> "100"^^<http://www.w3.org/2001/XMLSchema#int> .
+
+<http://data.example.com/Exercise/6> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HeartRate> "100"^^<http://www.w3.org/2001/XMLSchema#int> .
+
+<http://data.example.com/Exercise/7> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HeartRate> "100"^^<http://www.w3.org/2001/XMLSchema#int> .
+
+<http://data.example.com/Exercise/3> a <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Exercise> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#HeartRate> "120"^^<http://www.w3.org/2001/XMLSchema#int> .
+
+<http://data.example.com/Exercise/9> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HeartRate> "120"^^<http://www.w3.org/2001/XMLSchema#int> .
+
+<http://data.example.com/Exercise/2> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HeartRate> "120"^^<http://www.w3.org/2001/XMLSchema#int> .
+
+<http://data.example.com/Exercise/4> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HeartRate> "120"^^<http://www.w3.org/2001/XMLSchema#int> .
+
+<http://data.example.com/Workout/1> a <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Workout> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasUser> <http://data.example.com/User/1> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasDate> "1/1/2016"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<http://data.example.com/Workout/4> a <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Workout> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasUser> <http://data.example.com/User/1> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasDate> "10/3/2016"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<http://data.example.com/Workout/1> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasUser> <http://data.example.com/User/2> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasDate> "5/8/2015"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<http://data.example.com/Workout/3> a <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Workout> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasUser> <http://data.example.com/User/3> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasDate> "3/2/2016"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<http://data.example.com/Workout/2> a <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Workout> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasUser> <http://data.example.com/User/4> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasDate> "7/11/2015"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<http://data.example.com/Workout/5> a <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Workout> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasUser> <http://data.example.com/User/5> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasDate> "28/9/2015"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<http://data.example.com/Person/1> a <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Person> ;
+	<http://xmlns.com/foaf/0.1/givenName> "Lance"^^<http://www.w3.org/2001/XMLSchema#string> ;
+	<http://dbpedia.org/ontology/height> "177"^^<http://www.w3.org/2001/XMLSchema#double> ;
+	<http://xmlns.com/foaf/0.1/surname> "Armstrong"^^<http://www.w3.org/2001/XMLSchema#string> ;
+	<http://dbpedia.org/ontology/Person/weight> "75"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+<http://data.example.com/Person/2> a <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Person> ;
+	<http://xmlns.com/foaf/0.1/givenName> "Miguel"^^<http://www.w3.org/2001/XMLSchema#string> ;
+	<http://dbpedia.org/ontology/height> "170"^^<http://www.w3.org/2001/XMLSchema#double> ;
+	<http://xmlns.com/foaf/0.1/surname> "Indurain"^^<http://www.w3.org/2001/XMLSchema#string> ;
+	<http://dbpedia.org/ontology/Person/weight> "70"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+<http://data.example.com/Person/3> a <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Person> ;
+	<http://xmlns.com/foaf/0.1/givenName> "Andrew"^^<http://www.w3.org/2001/XMLSchema#string> ;
+	<http://dbpedia.org/ontology/height> "175"^^<http://www.w3.org/2001/XMLSchema#double> ;
+	<http://xmlns.com/foaf/0.1/surname> "Parker"^^<http://www.w3.org/2001/XMLSchema#string> ;
+	<http://dbpedia.org/ontology/Person/weight> "71"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+<http://data.example.com/Person/4> a <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Person> ;
+	<http://xmlns.com/foaf/0.1/givenName> "Tina"^^<http://www.w3.org/2001/XMLSchema#string> ;
+	<http://dbpedia.org/ontology/height> "165"^^<http://www.w3.org/2001/XMLSchema#double> ;
+	<http://xmlns.com/foaf/0.1/surname> "Weaver"^^<http://www.w3.org/2001/XMLSchema#string> ;
+	<http://dbpedia.org/ontology/Person/weight> "65"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+<http://data.example.com/Person/5> a <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Person> ;
+	<http://xmlns.com/foaf/0.1/givenName> "Camila"^^<http://www.w3.org/2001/XMLSchema#string> ;
+	<http://dbpedia.org/ontology/height> "170"^^<http://www.w3.org/2001/XMLSchema#double> ;
+	<http://xmlns.com/foaf/0.1/surname> "Smith"^^<http://www.w3.org/2001/XMLSchema#string> ;
+	<http://dbpedia.org/ontology/Person/weight> "60"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+<http://data.example.com/UserAccount/1> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#UserOf> <http://data.example.com/Workout/1> , <http://data.example.com/Workout/4> .
+
+<http://data.example.com/UserAccount/2> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#UserOf> <http://data.example.com/Workout/1> .
+
+<http://data.example.com/UserAccount/3> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#UserOf> <http://data.example.com/Workout/3> .
+
+<http://data.example.com/UserAccount/4> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#UserOf> <http://data.example.com/Workout/2> .
+
+<http://data.example.com/UserAccount/5> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#UserOf> <http://data.example.com/Workout/5> .
+
+<http://data.example.com/Exercise/1> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Rating> "8"^^<http://www.w3.org/2001/XMLSchema#int> .
+
+<http://data.example.com/Exercise/10> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Rating> "8"^^<http://www.w3.org/2001/XMLSchema#int> .
+
+<http://data.example.com/Exercise/2> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Rating> "4"^^<http://www.w3.org/2001/XMLSchema#int> .
+
+<http://data.example.com/Exercise/3> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Rating> "3"^^<http://www.w3.org/2001/XMLSchema#int> .
+
+<http://data.example.com/Exercise/4> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Rating> "4"^^<http://www.w3.org/2001/XMLSchema#int> .
+
+<http://data.example.com/Exercise/6> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Rating> "6.3333"^^<http://www.w3.org/2001/XMLSchema#int> .
+
+<http://data.example.com/Exercise/7> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Rating> "6.3333"^^<http://www.w3.org/2001/XMLSchema#int> .
+
+<http://data.example.com/Exercise/8> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Rating> "7.5000"^^<http://www.w3.org/2001/XMLSchema#int> .
+
+<http://data.example.com/Exercise/9> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Rating> "3.5000"^^<http://www.w3.org/2001/XMLSchema#int> .
+
+<http://data.example.com/Exercise/1> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasType> "Power"^^<http://www.w3.org/2001/XMLSchema#string> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#Repeats> "10"^^<http://www.w3.org/2001/XMLSchema#int> .
+
+<http://data.example.com/Exercise/10> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasType> "Power"^^<http://www.w3.org/2001/XMLSchema#string> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#Repeats> "20"^^<http://www.w3.org/2001/XMLSchema#int> .
+
+<http://data.example.com/Exercise/3> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasType> "Power"^^<http://www.w3.org/2001/XMLSchema#string> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#Repeats> "0"^^<http://www.w3.org/2001/XMLSchema#int> .
+
+<http://data.example.com/Exercise/5> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasType> "Power"^^<http://www.w3.org/2001/XMLSchema#string> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#Repeats> "0"^^<http://www.w3.org/2001/XMLSchema#int> .
+
+<http://data.example.com/Exercise/6> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasType> "Power"^^<http://www.w3.org/2001/XMLSchema#string> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#Repeats> "0"^^<http://www.w3.org/2001/XMLSchema#int> .
+
+<http://data.example.com/Exercise/7> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasType> "Power"^^<http://www.w3.org/2001/XMLSchema#string> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#Repeats> "0"^^<http://www.w3.org/2001/XMLSchema#int> .
+
+<http://data.example.com/Exercise/8> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasType> "Power"^^<http://www.w3.org/2001/XMLSchema#string> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#Repeats> "0"^^<http://www.w3.org/2001/XMLSchema#int> .
+
+<http://data.example.com/Exercise/1> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Difficulty> "7"^^<http://www.w3.org/2001/XMLSchema#int> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#Duration> "20"^^<http://www.w3.org/2001/XMLSchema#int> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#NumberOfCalories> "404"^^<http://www.w3.org/2001/XMLSchema#int> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasName> "Kettle bell"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://data.example.com/Exercise/10> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Difficulty> "7"^^<http://www.w3.org/2001/XMLSchema#int> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#Duration> "0"^^<http://www.w3.org/2001/XMLSchema#int> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#NumberOfCalories> "21"^^<http://www.w3.org/2001/XMLSchema#int> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasName> "Weight Lift"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://data.example.com/Exercise/2> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Difficulty> "5"^^<http://www.w3.org/2001/XMLSchema#int> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#Duration> "30"^^<http://www.w3.org/2001/XMLSchema#int> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#NumberOfCalories> "377"^^<http://www.w3.org/2001/XMLSchema#int> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasName> "Indoor Rowing"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://data.example.com/Exercise/3> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Difficulty> "3"^^<http://www.w3.org/2001/XMLSchema#int> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#Duration> "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#NumberOfCalories> "14"^^<http://www.w3.org/2001/XMLSchema#int> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasName> "10 Burpees"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://data.example.com/Exercise/4> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Difficulty> "6"^^<http://www.w3.org/2001/XMLSchema#int> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#Duration> "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#NumberOfCalories> "87"^^<http://www.w3.org/2001/XMLSchema#int> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasName> "Airdyne Bike Sprint"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://data.example.com/Exercise/5> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Difficulty> "3"^^<http://www.w3.org/2001/XMLSchema#int> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#Duration> "10"^^<http://www.w3.org/2001/XMLSchema#int> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#NumberOfCalories> "130"^^<http://www.w3.org/2001/XMLSchema#int> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasName> "Jumping Rope"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://data.example.com/Exercise/6> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Difficulty> "3"^^<http://www.w3.org/2001/XMLSchema#int> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#Duration> "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#NumberOfCalories> "20"^^<http://www.w3.org/2001/XMLSchema#int> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasName> "5 Pull Ups"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://data.example.com/Exercise/7> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Difficulty> "4"^^<http://www.w3.org/2001/XMLSchema#int> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#Duration> "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#NumberOfCalories> "10"^^<http://www.w3.org/2001/XMLSchema#int> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasName> "10 Push Up"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://data.example.com/Exercise/8> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Difficulty> "3"^^<http://www.w3.org/2001/XMLSchema#int> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#Duration> "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#NumberOfCalories> "15"^^<http://www.w3.org/2001/XMLSchema#int> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasName> "15 Squats"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://data.example.com/Exercise/9> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#Difficulty> "5"^^<http://www.w3.org/2001/XMLSchema#int> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#Duration> "30"^^<http://www.w3.org/2001/XMLSchema#int> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#NumberOfCalories> "238"^^<http://www.w3.org/2001/XMLSchema#int> ;
+	<http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasName> "Indoor Run"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://data.example.com/Exercise/1> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasMuscleGroup> "Glutes"^^<http://www.w3.org/2001/XMLSchema#string> , "Quads"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://data.example.com/Exercise/10> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasMuscleGroup> "Biceps"^^<http://www.w3.org/2001/XMLSchema#string> , "Triceps"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://data.example.com/Exercise/2> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasMuscleGroup> "Full Body"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://data.example.com/Exercise/3> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasMuscleGroup> "Abs"^^<http://www.w3.org/2001/XMLSchema#string> , "Gluteus Ma"^^<http://www.w3.org/2001/XMLSchema#string> , "Hamstrings"^^<http://www.w3.org/2001/XMLSchema#string> , "Quadriceps"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://data.example.com/Exercise/4> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasMuscleGroup> "Hamstrings"^^<http://www.w3.org/2001/XMLSchema#string> , "Quadriceps"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://data.example.com/Exercise/5> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasMuscleGroup> "Calves"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://data.example.com/Exercise/6> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasMuscleGroup> "Latissimus"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://data.example.com/Exercise/7> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasMuscleGroup> "Abs"^^<http://www.w3.org/2001/XMLSchema#string> , "Pectoralis"^^<http://www.w3.org/2001/XMLSchema#string> , "Triceps"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://data.example.com/Exercise/8> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasMuscleGroup> "Erector Sp"^^<http://www.w3.org/2001/XMLSchema#string> , "Gluteus Ma"^^<http://www.w3.org/2001/XMLSchema#string> , "Hamstrings"^^<http://www.w3.org/2001/XMLSchema#string> , "Quadriceps"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://data.example.com/Exercise/9> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasMuscleGroup> "Calves"^^<http://www.w3.org/2001/XMLSchema#string> , "Hamstrings"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+<http://data.example.com/Exercise/6> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasWorkout> <http://data.example.com/Workout/1> .
+
+<http://data.example.com/Exercise/7> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasWorkout> <http://data.example.com/Workout/1> .
+
+<http://data.example.com/Exercise/8> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasWorkout> <http://data.example.com/Workout/1> .
+
+<http://data.example.com/Exercise/1> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasWorkout> <http://data.example.com/Workout/2> .
+
+<http://data.example.com/Exercise/10> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasWorkout> <http://data.example.com/Workout/2> .
+
+<http://data.example.com/Exercise/6> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasWorkout> <http://data.example.com/Workout/3> .
+
+<http://data.example.com/Exercise/7> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasWorkout> <http://data.example.com/Workout/3> .
+
+<http://data.example.com/Exercise/3> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasWorkout> <http://data.example.com/Workout/4> .
+
+<http://data.example.com/Exercise/9> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasWorkout> <http://data.example.com/Workout/4> .
+
+<http://data.example.com/Exercise/2> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasWorkout> <http://data.example.com/Workout/5> .
+
+<http://data.example.com/Exercise/4> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasWorkout> <http://data.example.com/Workout/5> .
+
+<http://data.example.com/Exercise/9> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasWorkout> <http://data.example.com/Workout/5> .
+
+<http://data.example.com/Workout/1> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasExercise> <http://data.example.com/Exercise/6> , <http://data.example.com/Exercise/7> , <http://data.example.com/Exercise/8> .
+
+<http://data.example.com/Workout/2> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasExercise> <http://data.example.com/Exercise/1> , <http://data.example.com/Exercise/10> .
+
+<http://data.example.com/Workout/3> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasExercise> <http://data.example.com/Exercise/6> , <http://data.example.com/Exercise/7> .
+
+<http://data.example.com/Workout/4> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasExercise> <http://data.example.com/Exercise/3> , <http://data.example.com/Exercise/9> .
+
+<http://data.example.com/Workout/5> <http://webprotege.stanford.edu/ontologies/ExerciseOntology#HasExercise> <http://data.example.com/Exercise/2> , <http://data.example.com/Exercise/4> , <http://data.example.com/Exercise/9> .

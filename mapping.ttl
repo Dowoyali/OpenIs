@@ -1,5 +1,5 @@
 @prefix rr: <http://www.w3.org/ns/r2rml#>.
-@prefix ex: <http://ourthing.com/ns#>.
+@prefix ex: <http://webprotege.stanford.edu/ontologies/ExerciseOntology#>.
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -11,7 +11,7 @@
     rr:logicalTable [ rr:tableName "User" ];
     rr:subjectMap [
         rr:template "http://data.example.com/UserAccount/{User id}";
-        rr:class ex:User;
+        rr:class ex:UserAccount;
     ];
 
     rr:predicateObjectMap [
@@ -30,7 +30,7 @@
     rr:logicalTable [ rr:tableName "UserWorkout" ];
     rr:subjectMap [
         rr:template "http://data.example.com/UserAccount/{User id}";
-        rr:class ex:User;
+        rr:class ex:UserAccount;
     ];
 
     rr:predicateObjectMap [
@@ -101,7 +101,7 @@
 	rr:logicalTable [rr:tableName "WorkoutExercise"];
 	rr:subjectMap [
 		rr:template "http://data.example.com/Exercise/{Exercise id}";
-		rr:class ex:Exericse;
+		rr:class ex:Exercise;
 	];
 	rr:predicateObjectMap [
 		rr:predicate ex:HasWorkout;
@@ -138,7 +138,7 @@
   rr:logicalTable [ rr:tableName "`Exercise Device`" ];
 
   rr:subjectMap [
-    rr:template "{Exercise id}";
+    rr:template "http://data.example.com/Exercise/{Exercise id}";
     rr:class ex:Exercise;
   ];
 
@@ -156,7 +156,7 @@
   rr:logicalTable [ rr:tableName "PowerExercise"];
 
   rr:subjectMap [
-    rr:template "{Exercise id}";
+    rr:template "http://data.example.com/Exercise/{Exercise id}";
     rr:class ex:Exercise;
   ];
 
@@ -182,7 +182,7 @@
     rr:logicalTable [ rr:tableName "CardioExercise"];
 
     rr:subjectMap [
-      rr:template "{Exercise id}";
+      rr:template "http://data.example.com/Exercise/{Exercise id}";
       rr:class ex:Exercise;
     ];
 
@@ -203,7 +203,7 @@
     ].
 
 <#exercise_TM>
-  a rr:TriplesMap;
+  rdf:type rr:TriplesMap;
 
   rr:logicalTable [ rr:tableName "Exercise" ];
 
@@ -248,7 +248,7 @@
   rr:logicalTable [rr:sqlQuery """SELECT `Exercise id`, AvergeBPM FROM Workout INNER JOIN WorkoutExercise ON Workout.`Workout id`=WorkoutExercise.`Workout id`"""];
 
   rr:subjectMap [
-    rr:template "{Exercise id}";
+    rr:template "http://data.example.com/Exercise/{Exercise id}";
     rr:class ex:Exercise;
   ];
 
@@ -264,7 +264,7 @@
   rr:logicalTable[rr:tableName "ExTargetsMuscle"];
 
   rr:subjectMap [
-    rr:template "{Exercise id}";
+    rr:template "http://data.example.com/Exercise/{Exercise id}";
     rr:class ex:Exercise;
   ];
 
@@ -280,7 +280,7 @@
     rr:logicalTable [rr:sqlQuery """SELECT `Exercise id`, AVG(Rating) FROM UserWorkout INNER JOIN WorkoutExercise ON UserWorkout.`Workout id`=WorkoutExercise.`Workout id` GROUP BY `Exercise id`"""];
 
     rr:subjectMap [
-      rr:template "{Exercise id}";
+      rr:template "http://data.example.com/Exercise/{Exercise id}";
       rr:class ex:Exercise;
     ];
 
