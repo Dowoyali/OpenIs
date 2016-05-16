@@ -1,7 +1,7 @@
 //Url for the sport Fuseki
 var urlSport = "http://localhost:3030/ds/query"
 //Url for the food Fuseki
-var urlFood = "http://localhost:3031/ds/query"
+var urlFood = "http://localhost:3031/ds2/query"
 
 
 
