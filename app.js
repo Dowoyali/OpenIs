@@ -65,12 +65,6 @@ function createIngredientsRow(text,id){
 	row.appendChild(col1);
 	row.appendChild(col2);
 
-	//var butt = document.createElement("button");
-	//butt.appendChild(document.createTextNode(text));
-	//butt.className = "btn btn-primary btn-lg";
-	//butt.onclick = function(){removeFromMeal(name);butt.parentNode.removeChild(butt)};
-	//col1.appendChild(butt);
-	
 	var butt = document.createElement("button");
 
 	document.getElementById("exercises").appendChild(row);
@@ -93,7 +87,7 @@ function createButtonPossibilities(text, name){
 	var butt = document.createElement("button");
 	butt.appendChild(document.createTextNode(text));
 	butt.className = "btn btn-success btn-lg";
-	butt.onclick = function(){addToMeal(name);}//createButtonIngredient(name);};
+	butt.onclick = function(){addToMeal(name);};
 	resultsDiv.appendChild(butt);
 };
 //-----------------------------------AUTOCOMPLETE-------------------------------------//
