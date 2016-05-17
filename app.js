@@ -3,8 +3,6 @@ var urlSport = "http://localhost:3030/ds/query"
 //Url for the food Fuseki
 var urlFood = "http://localhost:3031/ds/query"
 
-
-
 function stringify(value){return '"'+ value +'"'};
 var foodqueryBase = [
  "SELECT ?subject1 ?name",
@@ -36,13 +34,14 @@ function search(){doQuery(createFoodQuery(stringify((document.getElementById("in
 function makeResults(response){
 	while (resultsDiv.firstChild) {resultsDiv.removeChild(resultsDiv.firstChild);};
 	createIngredients(response.results.bindings);
-	showIngredientsRow();
+	//Should be deleted
+	//showIngredientsRow();
 };
 
 var cheatMeal = [];
 
-function removeFromMeal(foodName){
-
+function removeFromMeal(id){
+	cheatMeal.remove(id);
 };
 function addToMeal(foodName){
 	console.log(foodName);
@@ -51,7 +50,7 @@ function addToMeal(foodName){
 
 function calculateExercises(cheatMeal){
 	for (meal in cheatMeal){
-		createIngredientsRow(meal,1);
+		createIngredientsRow(cheatMeal[meal],meal);
 	}
 };
 
@@ -68,14 +67,13 @@ function createIngredientsRow(text,id){
 
 	var butt = document.createElement("button");
 	butt.appendChild(document.createTextNode(text));
-	butt.className = "btn btn-success btn-lg";
+	butt.className = "btn btn-primary btn-lg";
 	butt.onclick = function(){removeFromMeal(name);butt.parentNode.removeChild(butt)};
 	col1.appendChild(butt);
 
-	 document.getElementById("exercises").appendChild(row);
+	document.getElementById("exercises").appendChild(row);
 }
 
-function showIngredientsRow(){document.getElementById("ingredientsRow").style.display = "inline";};
 function createIngredients(ingredients){
 	for(var i = 0; i < ingredients.length; i++){
 		var temp = ingredients[i].name.value;
@@ -92,6 +90,7 @@ function createButtonPossibilities(text, name){
 	resultsDiv.appendChild(butt);
 };
 
+//This function should be deleted later on. 
 function createButtonIngredient(name){
 	var ingredientsDiv = document.getElementById("ingredientsDiv");
 	var butt = document.createElement("button");
@@ -101,6 +100,7 @@ function createButtonIngredient(name){
 	ingredientsDiv.appendChild(butt);
 };
 
+//-----------------------------------AUTOCOMPLETE-------------------------------------//
 window.onload = createAutoComplete;
 function createAutoComplete(){
  new autoComplete({
@@ -116,7 +116,7 @@ function createAutoComplete(){
     }
 });
 }
-
+//------------------------------------------------------------------------------------//
 //testing ------
 var brolQuery = [
 "@prefix food: <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/>.",
