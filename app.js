@@ -46,7 +46,7 @@ function removeFromMeal(id){
 function addToMeal(foodName){
 	console.log(foodName);
 	cheatMeal.push(foodName);
-	calculateExercises(cheatMeal)};
+	createIngredientsRow(foodName, cheatMeal.length);};
 
 function calculateExercises(cheatMeal){
 	for (meal in cheatMeal){
