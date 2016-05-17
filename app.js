@@ -13,6 +13,29 @@ var foodqueryBase = [
 var foodqueryEnd = ', "i").}';
 function createFoodQuery(regex) {return urlFood + "?query=" + foodqueryBase + regex + foodqueryEnd};
 
+var getIngredientsBegin = 
+"SELECT ?ingredient_name " +
+"WHERE {" +
+"?food <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasFoodName> ";
+var getIngredientsLast = 
+"?recipe <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/resultsIn> ?food. " +
+"?recipe <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/requiresQuantityOfIngredient> ?ingredient_quantity. " +
+"?ingredient_quantity <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredient> ?ingredient. " +
+"?ingredient <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredientName> ?ingredient_name.} ";
+function getIngredients(recipe){
+	var query = urlFood + "?query=" + getIngredientsBegin + recipe + ". " + getIngredientsLast;
+	console.log(query);
+	doQuery(function(ingredients) {
+		console.log(ingredients);
+		var text = document.getElementById("modalText");
+
+		while (text.firstChild) {text.removeChild(text.firstChild);};
+		var newEl = document.createElement("li");
+		newEl.innerHTML = "brolke";
+		text.appendChild(newEl);
+	});
+}
+
 function doQuery(query, callback){
 	xhttp = new XMLHttpRequest();
 	
@@ -54,6 +77,25 @@ function calculateExercises(cheatMeal){
 	}
 };
 
+function updateModal(recipe){
+	var title = document.getElementById("modalTitle");
+	title.innerHTML = recipe + " ingredients:";
+
+	getIngredients(recipe);
+};
+
+function loadingModal(){
+	var text = document.getElementById("modalText");
+	while (text.firstChild) {text.removeChild(text.firstChild);};
+	var newEl = document.createElement("li");
+	newEl.innerHTML = "Loading ingredients";
+	var newEll = document.createElement("li");
+	newEll.innerHTML = "...";
+
+	text.appendChild(newEl);
+	text.appendChild(newEll);
+}
+
 function createIngredientsRow(text,id){
 	var row = document.createElement("div");
 	row.className = "row";
@@ -72,6 +114,7 @@ function createIngredientsRow(text,id){
 	butt.className = "btn btn-info btn-lg";
 	butt.setAttribute("data-toggle", "modal");
 	butt.setAttribute("data-target", "#TheModal");
+	butt.onclick = function(){updateModal(text);};
 	col1.appendChild(butt);
 }
 
