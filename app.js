@@ -89,17 +89,6 @@ function createButtonPossibilities(text, name){
 	butt.onclick = function(){addToMeal(name);}//createButtonIngredient(name);};
 	resultsDiv.appendChild(butt);
 };
-
-//This function should be deleted later on. 
-function createButtonIngredient(name){
-	var ingredientsDiv = document.getElementById("ingredientsDiv");
-	var butt = document.createElement("button");
-	butt.appendChild(document.createTextNode(name));
-	butt.className = "btn btn-info btn-lg";
-	butt.onclick = function(){removeFromMeal(name);butt.parentNode.removeChild(butt)};
-	ingredientsDiv.appendChild(butt);
-};
-
 //-----------------------------------AUTOCOMPLETE-------------------------------------//
 window.onload = createAutoComplete;
 function createAutoComplete(){
