@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sh fuseki-server --update --mem --port=3031 /ds2
+sh fuseki-server --update --mem --port=3031 /ds

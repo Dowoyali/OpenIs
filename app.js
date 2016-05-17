@@ -1,7 +1,7 @@
 //Url for the sport Fuseki
 var urlSport = "http://localhost:3030/ds/query"
 //Url for the food Fuseki
-var urlFood = "http://localhost:3031/ds2/query"
+var urlFood = "http://localhost:3031/ds/query"
 
 
 
@@ -9,8 +9,8 @@ function stringify(value){return '"'+ value +'"'};
 var foodqueryBase = [
  "SELECT ?subject1 ?name",
  "WHERE {",
- "?subject1 a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/Ingredient>.",
- "?subject1 <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredientName> ?name.",
+ "?food a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/Food> .",
+ "?food <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasFoodName> ?name.",
  "FILTER regex(?name, "].join(" ");
 var foodqueryEnd = ', "i").}';
 function createFoodQuery(regex) {return urlFood + "?query=" + foodqueryBase + regex + foodqueryEnd};
@@ -40,9 +40,40 @@ function makeResults(response){
 };
 
 var cheatMeal = [];
+
+function removeFromMeal(foodName){
+
+};
 function addToMeal(foodName){
 	console.log(foodName);
-	cheatMeal.push(foodName);};
+	cheatMeal.push(foodName);
+	calculateExercises(cheatMeal)};
+
+function calculateExercises(cheatMeal){
+	for (meal in cheatMeal){
+		createIngredientsRow(meal,1);
+	}
+};
+
+function createIngredientsRow(text,id){
+	var row = document.createElement("div");
+	row.className = "row";
+	var col1 = document.createElement("div");
+	col1.className = "col-xs-6";
+	var col2 = document.createElement("div");
+	col2.className = "col-xs-6";
+
+	row.appendChild(col1);
+	row.appendChild(col2);
+
+	var butt = document.createElement("button");
+	butt.appendChild(document.createTextNode(text));
+	butt.className = "btn btn-success btn-lg";
+	butt.onclick = function(){removeFromMeal(name);butt.parentNode.removeChild(butt)};
+	col1.appendChild(butt);
+
+	 document.getElementById("exercises").appendChild(row);
+}
 
 function showIngredientsRow(){document.getElementById("ingredientsRow").style.display = "inline";};
 function createIngredients(ingredients){
@@ -57,7 +88,7 @@ function createButtonPossibilities(text, name){
 	var butt = document.createElement("button");
 	butt.appendChild(document.createTextNode(text));
 	butt.className = "btn btn-success btn-lg";
-	butt.onclick = function(){addToMeal(name);createButtonIngredient(name);};
+	butt.onclick = function(){addToMeal(name);}//createButtonIngredient(name);};
 	resultsDiv.appendChild(butt);
 };
 
@@ -66,7 +97,7 @@ function createButtonIngredient(name){
 	var butt = document.createElement("button");
 	butt.appendChild(document.createTextNode(name));
 	butt.className = "btn btn-info btn-lg";
-	butt.onclick = function(){butt.parentNode.removeChild(butt)};
+	butt.onclick = function(){removeFromMeal(name);butt.parentNode.removeChild(butt)};
 	ingredientsDiv.appendChild(butt);
 };
 
