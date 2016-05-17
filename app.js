@@ -60,6 +60,53 @@ function doQuery(query, callback){
 	xhttp.send();
 }
 
+function queryBuilder(foodName,numberofEx,duration,type,muscles){
+var query = 
+"PREFIX ex: <http://webprotege.stanford.edu/ontologies/ExerciseOntology%23> " +
+"PREFIX food: <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/> " +
+"PREFIX xsd: <http://www.w3.org/2001/XMLSchema%23> " +
+"SELECT DISTINCT ?exname ?calories ?cal ?prefered " +
+"WHERE { " +
+"  ?ex a ex:Exercise. " +
+"  ?ex ex:NumberOfCalories ?calories. " +
+"  ?ex ex:HasName ?exname. " +
+"  ?ex ex:HasMuscleGroup ?muscles. " +
+"  ?ex ex:Duration ?duration. " +
+"  ?ex ex:HasType ?type. " +
+"  " +
+"  FILTER (?calories > ?cal/ " + numberofEx + ") " +
+"    OPTIONAL{ " +
+"        FILTER (?duration > "+ duration + ") " +
+' 		FILTER regex(?type,"' + type + '","i")'  +
+'  		FILTER regex(?muscles,"' + muscles + '","i") ' +
+"    values ?prefered {1} " +
+"  	} " +
+" " +
+"  SERVICE <http://localhost:3031/ds/query> { " +
+" " +
+"	SELECT ?fname  (SUM (?nvqu) as ?cal) " +
+"	WHERE { " +
+"  		?food a food:Food . " +
+'  		?food food:hasFoodName "' + foodName + '". ' +
+"  		?recipe a food:Recipe. " +
+"  		?recipe food:resultsIn ?food. " +
+"  		?recipe food:requiresQuantityOfIngredient ?qi. " +
+"  		 " +
+"		?qi food:hasIngredientQuantity ?iq. " +
+"		?qi food:hasIngredient ?ing. " +
+" " +
+"		?ing food:hasNutritiveValuesQuantity ?nvq. " +
+"  		?nvq food:hasNutritiveQuantity ?nvqu. " +
+"    	?nvq food:hasNutritiveValueQuantityUnit ?unit " +
+'   FILTER regex(?unit,'+'"kCal"'+') ' +
+"  		 " +
+"} GROUP BY ?fname " +
+"  } " +
+"} ORDER BY ?calories";
+
+	return query;
+}
+
 function search(){doQuery(createFoodQuery(stringify((document.getElementById("ingredientInput").value))), makeResults);};
 
 function makeResults(response){
@@ -111,6 +158,7 @@ function createIngredientsRow(text,id){
 	col1.className = "col-xs-6";
 	var col2 = document.createElement("div");
 	col2.className = "col-xs-6";
+	col2.id = "col2"+id;
 
 	row.appendChild(col1);
 	row.appendChild(col2);
@@ -124,6 +172,20 @@ function createIngredientsRow(text,id){
 	butt.setAttribute("data-target", "#TheModal");
 	butt.onclick = function(){updateModal(text);};
 	col1.appendChild(butt);
+
+
+	var query = urlSport + "?query=" + queryBuilder(text,1,5,"power","Calves");
+
+	doQuery(query,function(response){
+
+		//create fancy list here
+		//array = objects met calories.value en exname.value
+		var array = response.results.bindings
+
+		col2.appendChild();
+	})
+
+
 }
 
 function createIngredients(ingredients){
