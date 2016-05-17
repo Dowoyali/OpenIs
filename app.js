@@ -65,13 +65,20 @@ function createIngredientsRow(text,id){
 	row.appendChild(col1);
 	row.appendChild(col2);
 
+	//var butt = document.createElement("button");
+	//butt.appendChild(document.createTextNode(text));
+	//butt.className = "btn btn-primary btn-lg";
+	//butt.onclick = function(){removeFromMeal(name);butt.parentNode.removeChild(butt)};
+	//col1.appendChild(butt);
+	
 	var butt = document.createElement("button");
-	butt.appendChild(document.createTextNode(text));
-	butt.className = "btn btn-primary btn-lg";
-	butt.onclick = function(){removeFromMeal(name);butt.parentNode.removeChild(butt)};
-	col1.appendChild(butt);
 
 	document.getElementById("exercises").appendChild(row);
+	butt.appendChild(document.createTextNode(text));
+	butt.className = "btn btn-info btn-lg";
+	butt.setAttribute("data-toggle", "modal");
+	butt.setAttribute("data-target", "#TheModal");
+	col1.appendChild(butt);
 }
 
 function createIngredients(ingredients){
