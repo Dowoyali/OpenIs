@@ -16,23 +16,31 @@ function createFoodQuery(regex) {return urlFood + "?query=" + foodqueryBase + re
 var getIngredientsBegin = 
 "SELECT ?ingredient_name " +
 "WHERE {" +
-"?food <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasFoodName> ";
+"?food <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasFoodName> " +
+'"';
 var getIngredientsLast = 
+'".' + 
 "?recipe <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/resultsIn> ?food. " +
 "?recipe <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/requiresQuantityOfIngredient> ?ingredient_quantity. " +
 "?ingredient_quantity <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredient> ?ingredient. " +
 "?ingredient <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredientName> ?ingredient_name.} ";
 function getIngredients(recipe){
-	var query = urlFood + "?query=" + getIngredientsBegin + recipe + ". " + getIngredientsLast;
-	console.log(query);
-	doQuery(function(ingredients) {
+	var query = urlFood + "?query=" + getIngredientsBegin + recipe + getIngredientsLast;
+	doQuery(query, function(ingredients) {
 		console.log(ingredients);
 		var text = document.getElementById("modalText");
 
 		while (text.firstChild) {text.removeChild(text.firstChild);};
-		var newEl = document.createElement("li");
-		newEl.innerHTML = "brolke";
-		text.appendChild(newEl);
+		
+		var res = ingredients.results.bindings;
+		for (x in res) {
+			console.log(x);
+			var val = res[x].ingredient_name.value;
+			var newEl = document.createElement("li");
+			newEl.innerHTML = val;
+			text.appendChild(newEl);
+
+		}
 	});
 }
 
