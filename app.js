@@ -116,11 +116,6 @@ function makeResults(response){
 
 var cheatMeal = [];
 
-function clearCheatMeal(){
-  cheatMeal = [];
-  document.getElementById("exercises").innerHTML = '<h2 align="center"> Cheat-meal </h2>';
-}
-
 function addToMeal(foodName){
 	console.log(foodName);
 	cheatMeal.push(foodName);
