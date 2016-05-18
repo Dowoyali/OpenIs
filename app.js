@@ -247,6 +247,26 @@ function enableBurner(){
   document.getElementById("menu1").className = "active";
   document.getElementById("menu2").className = "";
 };
+
+var muscleGroups = urlSport + "?query=" +
+"PREFIX ex: <http://webprotege.stanford.edu/ontologies/ExerciseOntology%23> " +
+"SELECT DISTINCT ?muscles " +
+"WHERE { " +
+ "?ex a ex:Exercise. " +
+ "?ex ex:NumberOfCalories ?calories. " +
+ "?ex ex:HasName ?exname. " +
+ "?ex ex:HasMuscleGroup ?muscles. " +
+"}";
+doQuery(muscleGroups, function(response){
+  var brol = document.getElementById("exMuscle");
+
+  var res = response.results.bindings;
+  for(x in res){
+    var temp = document.createElement("option");
+    temp.innerHTML = res[x].muscles.value;
+    brol.appendChild(temp);
+  }
+});
 //-----------------------------------AUTOCOMPLETE-------------------------------------//
 window.onload = createAutoComplete;
 function createAutoComplete(){
