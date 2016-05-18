@@ -211,10 +211,11 @@ function createIngredientsRow(text,id){
       list.appendChild(tempCol2);
       list2.appendChild(tempCol3);
     }
-    console.log(array)
 
     col2.appendChild(list);
     col3.appendChild(list2);
+
+    enableAlert();
 
 	})
 }
@@ -247,6 +248,13 @@ function enableBurner(){
   document.getElementById("menu1").className = "active";
   document.getElementById("menu2").className = "";
 };
+function enableAlert(){
+  var popUp = document.getElementById("popUp");
+  popUp.style.display = 'inline';
+  setTimeout(function(){
+    popUp.style.display = 'none';
+  }, 3000);
+}
 
 var muscleGroups = urlSport + "?query=" +
 "PREFIX ex: <http://webprotege.stanford.edu/ontologies/ExerciseOntology%23> " +
