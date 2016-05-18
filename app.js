@@ -13,13 +13,13 @@ var foodqueryBase = [
 var foodqueryEnd = ', "i").}';
 function createFoodQuery(regex) {return urlFood + "?query=" + foodqueryBase + regex + foodqueryEnd};
 
-var getIngredientsBegin = 
+var getIngredientsBegin =
 "SELECT ?ingredient_name " +
 "WHERE {" +
 "?food <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasFoodName> " +
 '"';
-var getIngredientsLast = 
-'".' + 
+var getIngredientsLast =
+'".' +
 "?recipe <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/resultsIn> ?food. " +
 "?recipe <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/requiresQuantityOfIngredient> ?ingredient_quantity. " +
 "?ingredient_quantity <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasIngredient> ?ingredient. " +
@@ -31,7 +31,7 @@ function getIngredients(recipe){
 		var text = document.getElementById("modalText");
 
 		while (text.firstChild) {text.removeChild(text.firstChild);};
-		
+
 		var res = ingredients.results.bindings;
 		for (x in res) {
 			console.log(x);
@@ -46,7 +46,7 @@ function getIngredients(recipe){
 
 function doQuery(query, callback){
 	xhttp = new XMLHttpRequest();
-	
+
 	xhttp.onreadystatechange= function() {
 		if(xhttp.readyState == 4 && xhttp.status == 200){
 			var response = JSON.parse(xhttp.responseText);
@@ -55,13 +55,13 @@ function doQuery(query, callback){
 		else{
 		}
 	}
-	
+
 	xhttp.open("GET",query,true);
 	xhttp.send();
 }
 
 function queryBuilder(foodName,numberofEx,duration,type,muscles){
-var query = 
+var query =
 "PREFIX ex: <http://webprotege.stanford.edu/ontologies/ExerciseOntology%23> " +
 "PREFIX food: <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/> " +
 "PREFIX xsd: <http://www.w3.org/2001/XMLSchema%23> " +
@@ -118,9 +118,11 @@ function makeResults(response){
 
 var cheatMeal = [];
 
-function removeFromMeal(id){
-	cheatMeal.remove(id);
-};
+function clearCheatMeal(){
+  cheatMeal = [];
+  document.getElementById("exercises").innerHTML = '<h2 align="center"> Cheat-meal </h2>';
+}
+
 function addToMeal(foodName){
 	console.log(foodName);
 	cheatMeal.push(foodName);
@@ -166,6 +168,7 @@ function createIngredientsRow(text,id){
 	var butt = document.createElement("button");
 
 	document.getElementById("exercises").appendChild(row);
+
 	butt.appendChild(document.createTextNode(text));
 	butt.className = "btn btn-info btn-lg";
 	butt.setAttribute("data-toggle", "modal");
@@ -184,8 +187,6 @@ function createIngredientsRow(text,id){
 
 		col2.appendChild();
 	})
-
-
 }
 
 function createIngredients(ingredients){
@@ -218,41 +219,4 @@ function createAutoComplete(){
 			 response(strings); });
     }
 });
-}
-//------------------------------------------------------------------------------------//
-//testing ------
-var brolQuery = [
-"@prefix food: <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/>.",
-"@prefix ex: <http://example.org/exercise>",
-"SELECT ?exercise_name ?food_name ?cal_food ?cal_ex",
-"WHERE{",
-"    ?exercise a ex:Exercise.",
-"    ?exercise ex:HasName ?exercise_name.",
-"    ?exercise ex:NumberOfCalories ?cal_ex.",
-"    FILTER (?cal_ex >= ?cal_food).",
-"    SERVICE <http://localhost:3031/ds2/query> {",
-"      ?food_el a food:Ingredient.",
-"      ?food_el food:hasIngredientName ?food_name.",
-"      ?food_el food:hasNutritiveValueQuantity ?cal_food.",
-"  }",
-"}"
-]
-var brool = urlFood+"?query="+brolQuery; 
-function brol(query){
-	xhttp = new XMLHttpRequest();
-	
-	xhttp.onreadystatechange= function() {
-		if(xhttp.readyState == 4 && xhttp.status == 200){
-
-			var response = JSON.parse(xhttp.responseText);
-			console.log(response);
-		}
-
-		else{
-		}
-	}
-	
-	xhttp.open("GET",query,true);
-	xhttp.send();
-
 }
