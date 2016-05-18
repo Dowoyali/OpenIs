@@ -112,8 +112,6 @@ function search(){doQuery(createFoodQuery(stringify((document.getElementById("in
 function makeResults(response){
 	while (resultsDiv.firstChild) {resultsDiv.removeChild(resultsDiv.firstChild);};
 	createIngredients(response.results.bindings);
-	//Should be deleted
-	//showIngredientsRow();
 };
 
 var cheatMeal = [];
@@ -157,13 +155,15 @@ function createIngredientsRow(text,id){
 	var row = document.createElement("div");
 	row.className = "row";
 	var col1 = document.createElement("div");
-	col1.className = "col-xs-6";
+	col1.className = "col-xs-4";
 	var col2 = document.createElement("div");
-	col2.className = "col-xs-6";
-	col2.id = "col2"+id;
+	col2.className = "col-xs-4";
+  var col3 = document.createElement("div");
+	col3.className = "col-xs-4";
 
 	row.appendChild(col1);
 	row.appendChild(col2);
+  row.appendChild(col3);
 
 	var butt = document.createElement("button");
 
@@ -176,8 +176,13 @@ function createIngredientsRow(text,id){
 	butt.onclick = function(){updateModal(text);};
 	col1.appendChild(butt);
 
-
-	var query = urlSport + "?query=" + queryBuilder(text,1,5,"power","Calves");
+  var exNumber = document.getElementById("exNumber").value;
+  var exDuration = document.getElementById("exDuration").value;
+  var typeEx;
+  if(document.getElementById("cardioRadio").checked){typeEx = "cardio"}
+    else{typeEx = "power"};
+  var exMuscle = document.getElementById("exMuscle").value;
+	var query = urlSport + "?query=" + queryBuilder(text,exNumber,exDuration,typeEx,exMuscle);
 
 	doQuery(query,function(response){
 
@@ -185,7 +190,37 @@ function createIngredientsRow(text,id){
 		//array = objects met calories.value en exname.value
 		var array = response.results.bindings
 
-		col2.appendChild();
+    var list = document.createElement("ul");
+    list.className = "list-group";
+
+    var list2 = document.createElement("ul");
+    list.className = "list-group";
+
+    var tempCol2 = document.createElement("li");
+    tempCol2.className = "list-group-item list-group-item-info";
+    tempCol2.innerHTML = "Kcals to consume: " + array[0].cal.value;
+
+    for (x in array){
+
+      var tempCol3 = document.createElement("li");
+      tempCol3.innerHTML = array[x].exname.value + " consuming: " + array[x].calories.value + "Kcal";
+
+      if(array[x].prefered === undefined){
+        tempCol3.className = "list-group-item list-group-item-warning";
+      }
+      else{
+        tempCol3.className = "list-group-item list-group-item-success";
+      }
+
+
+      list.appendChild(tempCol2);
+      list2.appendChild(tempCol3);
+    }
+    console.log(array)
+
+    col2.appendChild(list);
+    col3.appendChild(list2);
+
 	})
 }
 
@@ -203,6 +238,19 @@ function createButtonPossibilities(text, name){
 	butt.className = "btn btn-success btn-lg";
 	butt.onclick = function(){addToMeal(name);};
 	resultsDiv.appendChild(butt);
+};
+
+function enableCheatMeal(){
+  document.getElementById("cheatMealBurner").style.display = 'none';
+  document.getElementById("exercises").style.display = 'inline';
+  document.getElementById("menu1").className = "";
+  document.getElementById("menu2").className = "active";
+};
+function enableBurner(){
+  document.getElementById("exercises").style.display = 'none';
+  document.getElementById("cheatMealBurner").style.display = 'inline';
+  document.getElementById("menu1").className = "active";
+  document.getElementById("menu2").className = "";
 };
 //-----------------------------------AUTOCOMPLETE-------------------------------------//
 window.onload = createAutoComplete;

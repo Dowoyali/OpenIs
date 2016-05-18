@@ -1,119 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title>Cheat-meal burner</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script src="auto-complete.js"></script>
-  <script src="app.js"></script>
-  <link rel="stylesheet" href="auto-complete.css">
+    <title>Cheat-meal burner</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="auto-complete.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="auto-complete.css">
 </head>
+
 <body>
+    <div class="container">
+      <ul class="nav nav-tabs">
+        <li  class="active" onclick="enableBurner()" id="menu1"><a href="#cheatMealBurner">Calculator</a></li>
+        <li  onclick="enableCheatMeal()" id="menu2"><a href="#exercises">Cheatmeal</a></li>
+      </ul>
 
-<div class="container">
-	<div class="row">
-		<div class="col-xs-2"></div>
-	  <div class="col-xs-8" align="center">
-			<h1>Cheat-meal burner</h1>
-			<div class="form-group">
-        <label for="ingredientInput">Choose a recipe:</label>
-				<input id="ingredientInput" type="text" class="form-control" autocomplete="off" >
-			</div>
+        <div class="row" id="cheatMealBurner">
+            <div class="col-xs-2"></div>
+            <div class="col-xs-8" align="center">
+                <h1>Cheat-meal burner</h1>
+                <div class="form-group">
+                    <label for="ingredientInput">Choose a recipe:</label>
+                    <input id="ingredientInput" type="text" class="form-control" autocomplete="off">
+                </div>
 
 
-      <div class="form-group">
-        <label for="exNumber">Number of exercices:</label>
-        <select class="form-control" id="exNumber">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          <option>6</option>
-          <option>7</option>
-          <option>8</option>
-          <option>9</option>
-          <option>10</option>
-        </select>
-      </div>
+                <div class="form-group">
+                    <label for="exNumber">Number of exercices:</label>
+                    <select class="form-control" id="exNumber">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                    </select>
+                </div>
 
-      <div class="form-group">
-        <label for="exDuration">Every exercise maximum duration (minutes):</label>
-        <select class="form-control" id="exDuration">
-          <option>1</option>
-          <option>5</option>
-          <option>10</option>
-          <option>15</option>
-          <option>30</option>
-          <option>45</option>
-          <option>60</option>
-        </select>
-      </div>
+                <div class="form-group">
+                    <label for="exDuration">Every exercise maximum duration (minutes):</label>
+                    <select class="form-control" id="exDuration">
+                        <option>1</option>
+                        <option>5</option>
+                        <option>10</option>
+                        <option>15</option>
+                        <option>30</option>
+                        <option>45</option>
+                        <option>60</option>
+                    </select>
+                </div>
 
-      <div class="radio">
-        <label><input type="radio" name="optradio" checked="checked">Cardio Exercise</label>
-      </div>
-      <div class="radio">
-        <label><input type="radio" name="optradio">Power Exercise</label>
-      </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optradio" checked="checked" id="cardioRadio">Cardio Exercise</label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optradio" id="powerRadio">Power Exercise</label>
+                </div>
 
-      <div class="form-group">
-        <label for="exMuscle">Exercices muscle group:</label>
-        <select class="form-control" id="exMuscle">
-          <option>Glutes</option>
-          <option>Biceps</option>
-          <option>Full Body</option>
-          <option>Abs</option>
-          <option>Hamstrings</option>
-          <option>Calves</option>
-          <option>Latissimus</option>
-          <option>Abs</option>
-          <option>Erector Sp</option>
-        </select>
-      </div>
+                <div class="form-group">
+                    <label for="exMuscle">Exercices muscle group:</label>
+                    <select class="form-control" id="exMuscle">
+                        <option>Glutes</option>
+                        <option>Biceps</option>
+                        <option>Full Body</option>
+                        <option>Abs</option>
+                        <option>Hamstrings</option>
+                        <option>Calves</option>
+                        <option>Latissimus</option>
+                        <option>Abs</option>
+                        <option>Erector Sp</option>
+                    </select>
+                </div>
 
-      <div>
-        <button type="button" class="btn btn-primary" onclick="search()">Search</button>
-      </div>
-      </br>
+                <div>
+                    <button type="button" class="btn btn-primary" onclick="search()">Search</button>
+                </div>
+                </br>
 
-			<div class="btn-group-vertical" id="resultsDiv"></div>
-		  </div>
-	  <div class="col-xs-2"></div>
-	</div>
+                <div class="btn-group-vertical" id="resultsDiv"></div>
+            </div>
+            <div class="col-xs-2"></div>
+        </div>
 
-	<div id="exercises">
-		<h2 align="center"> Cheat-meal </h2>
-	</div>
-	<div align="center">
-		<button type ="button" class="btn btn-danger" onclick="clearCheatMeal()">Remove Ingredients</button>
-	</div>
+        <div id="exercises" style="display: none;">
+            <h2 align="center"> Cheat-meal </h2>
+            <div align="center">
+                <button type="button" class="btn btn-danger" onclick="clearCheatMeal()">Remove Ingredients</button>
+            </div>
+        </div>
+        
+        <!-- Modal -->
+        <div id="TheModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
 
-	<!-- Modal -->
-	<div id="TheModal" class="modal fade" role="dialog">
-  		<div class="modal-dialog">
-    			<!-- Modal content-->
-    			<div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 id="modalTitle" class="modal-title">Modal Header</h4>
+                    </div>
 
-				<div class="modal-header">
-        				<button type="button" class="close" data-dismiss="modal">&times;</button>
-        				<h4 id="modalTitle" class="modal-title">Modal Header</h4>
-      				</div>
+                    <div class="modal-body">
+                        <ul id="modalText"></ul>
+                    </div>
 
-      				<div class="modal-body">
-        				<ul id="modalText"></ul>
-      				</div>
+                    <div class="modal-footer">
+                        <button onclick="loadingModal()" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
 
-				<div class="modal-footer">
-        				<button onclick="loadingModal()" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      				</div>
-
-    			</div>
-  		</div>
-	</div>
-</div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
