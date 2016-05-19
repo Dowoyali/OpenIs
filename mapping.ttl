@@ -50,6 +50,17 @@
    ];
 
    rr:predicateObjectMap [
+        rr:predicate ex:PersonOf;
+	rr:objectMap [
+        	rr:parentTriplesMap <#UserAccount>;
+		rr:joinCondition [
+			rr:parent "`User id`";
+			rr:child "`User id`";
+		];
+   	];
+  ];
+
+   rr:predicateObjectMap [
  	rr:predicate foaf:givenName;
 	rr:objectMap [
 		rr:column "FirstName";

@@ -84,8 +84,10 @@
 	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasNutritiveValue> "http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#calorie";
 	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasNutritiveValueQuantityUnit> "kCal" ; 
 	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasNutritiveQuantity>"121"^^<http://www.w3.org/2001/XMLSchema#integer> ;
+
+<http://data.groep2.be/resource/nutritiveValuesQuantity/100> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/NutritiveValueQuantity> ;
 	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasNutritiveValue> "http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology#fat";
-	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasNutritiveValueQuantityUnit> "gramfat" ; 
+	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasNutritiveValueQuantityUnit> "gramt" ; 
 	<http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/hasNutritiveQuantity>"100"^^<http://www.w3.org/2001/XMLSchema#integer> .
 
 <http://data.groep2.be/resource/nutritiveValuesQuantity/1> a <http://www.semanticweb.org/joliendeclerck/ontologies/2016/3/OIS-food-ontology/NutritiveValueQuantity> ;
