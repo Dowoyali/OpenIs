@@ -6,7 +6,7 @@
 
 @prefix person: <http://dbpedia.org/ontology/Person/>.
 
-<#UserAccount>
+<#UserAccount_TM>
     rdf:type rr:TriplesMap ;
     rr:logicalTable [ rr:tableName "User" ];
     rr:subjectMap [
@@ -25,7 +25,7 @@
 	];
    ].
 
-<#UserAccountWorkout>
+<#UserAccountWorkout_TM>
     rdf:type rr:TriplesMap ;
     rr:logicalTable [ rr:tableName "UserWorkout" ];
     rr:subjectMap [
@@ -41,7 +41,7 @@
    ].
 
 
-<#Person>
+<#Person_TM>
    a rr:TriplesMap ;
    rr:logicalTable [ rr:tableName "User" ];
    rr:subjectMap [
@@ -93,7 +93,7 @@
    ].
 
 
-<#WorkoutExercise>
+<#WorkoutExercise_TM>
 	rr:logicalTable [rr:tableName "WorkoutExercise"];
 	rr:subjectMap [
 		rr:template "http://data.example.com/Workout/{Workout id}";
@@ -108,7 +108,7 @@
 	].
 
 
-<#WorkoutExercise2>
+<#WorkoutExercise2_TM>
 	rr:logicalTable [rr:tableName "WorkoutExercise"];
 	rr:subjectMap [
 		rr:template "http://data.example.com/Exercise/{Exercise id}";
@@ -122,7 +122,7 @@
 		];
 	].
 
-<#UserWorkout>
+<#UserWorkout_TM>
 	rr:logicalTable [rr:tableName "UserWorkout"];
 	rr:subjectMap [
 		rr:template "http://data.example.com/Workout/{Workout id}";
@@ -143,7 +143,7 @@
 	].
 
 
-<#exercise_device_TM>
+<#ExerciseDevice_TM>
   a rr:TriplesMap;
 
   rr:logicalTable [ rr:tableName "`Exercise Device`" ];
@@ -161,7 +161,7 @@
     ];
   ].
 
-<#power_exercise_TM>
+<#PowerExercise_TM>
   a rr:TriplesMap;
 
   rr:logicalTable [ rr:tableName "PowerExercise"];
@@ -187,7 +187,7 @@
     ];
   ].
 
-<#cardio_exercise_TM>
+<#CardioExercise_TM>
     a rr:TriplesMap;
 
     rr:logicalTable [ rr:tableName "CardioExercise"];
@@ -213,7 +213,7 @@
       ];
     ].
 
-<#exercise_TM>
+<#Exercise_TM>
   rdf:type rr:TriplesMap;
 
   rr:logicalTable [ rr:tableName "Exercise" ];
@@ -287,7 +287,7 @@
     ];
   ].
 
-  <#Rating_TM>
+<#Rating_TM>
     rr:logicalTable [rr:sqlQuery """SELECT `Exercise id`, AVG(Rating) FROM UserWorkout INNER JOIN WorkoutExercise ON UserWorkout.`Workout id`=WorkoutExercise.`Workout id` GROUP BY `Exercise id`"""];
 
     rr:subjectMap [
