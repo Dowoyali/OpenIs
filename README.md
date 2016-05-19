@@ -18,5 +18,9 @@ It is possible that build-in securities of the browser needs to be disabled to a
  cross-site scripting attacks detection.
 If the application is published on a apache like "real remote server" this problem is not present anymore.
 
+Mapping
+=======================
+The mapping can be executed with the doMapping.sh script. It will generate an output.tll file
+and relies on mapping.tll.
 
 -- Dowoyali Team --
