@@ -150,11 +150,11 @@ function createIngredientsRow(text,id){
 	var row = document.createElement("div");
 	row.className = "row";
 	var col1 = document.createElement("div");
-	col1.className = "col-xs-4";
+	col1.className = "col-xs-3";
 	var col2 = document.createElement("div");
-	col2.className = "col-xs-4";
+	col2.className = "col-xs-3";
   var col3 = document.createElement("div");
-	col3.className = "col-xs-4";
+	col3.className = "col-xs-6";
 
 	row.appendChild(col1);
 	row.appendChild(col2);
