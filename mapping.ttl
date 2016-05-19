@@ -17,7 +17,7 @@
     rr:predicateObjectMap [
         rr:predicate ex:OwnedByPerson;
 	rr:objectMap [
-        	rr:parentTriplesMap <#Person>;
+        	rr:parentTriplesMap <#Person_TM>;
 		rr:joinCondition [
 			rr:parent "`User id`";
 			rr:child "`User id`";
@@ -52,7 +52,7 @@
    rr:predicateObjectMap [
         rr:predicate ex:PersonOf;
 	rr:objectMap [
-        	rr:parentTriplesMap <#UserAccount>;
+        	rr:parentTriplesMap <#UserAccount_TM>;
 		rr:joinCondition [
 			rr:parent "`User id`";
 			rr:child "`User id`";
